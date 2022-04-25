@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <style>
+        .bg-image {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        input {
+            border-color: black !important;
+        }
+        .tambahan {
+            font-size: 13px;
+        }
+        .button {
+            background-color: #2A80B9;
+            color: white;
+        }
+        .button:hover {
+            background-color: #0056B3;
+        }
+        .error-message {
+            font-size: 13px;
+            color: red;
+        }
+        .is-invalid {
+            border-color:red !important; 
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body class="h-100 d-flex align-items-center justify-content-center">
+    <div class="container w-75 rounded p-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <img src="{{asset('images/email_sent.png')}}" alt="" class="w-25">
+        </div>
+        <div class="row d-flex align-items-center">
+            <form method="POST" action="{{ route('verification.resend') }}">
+                @csrf
+                <h1 class="text-center fs-3">A verification link has been sent to your email address !</h1>
+                <h2 class="text-center fs-5">Before proceeding, please check your email for a verification link</h2>
+                <h3 class="text-center" style="font-size: 15px;">If you did not receive the email, 
+                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline d-inline">{{ ('click here to request another') }}
+                    </button>
+                </h3>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
